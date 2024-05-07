@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Personel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<hr/>
+<form asp-controller="Home" asp-action="Index" method="post">
+    <input type="text" asp-for="Name"/>
+    <span asp-validation-for="Name"></span>
+    <hr/>
+    <input type="submit" value="Gönder"/>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} 
+
+@* View tarafında örnek formumuzu oluşturuyoruz
+<form asp-controller="Home" asp-action="Index" method="post">
+    <input type="text" asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <hr />
+    <input type="submit" value="Gönder" />
+</form>
+
+<span asp-validation-for="Name"></span> oluşturulan hata mesajımızı göstermek için kullanıyoruz.
+Bu HTML kodu, ASP.NET Core MVC veya Razor Pages uygulamalarında kullanılan bir doğrulama (validation) yardımcı yöntemini temsil eder.
+<span asp-validation-for="Name"></span>
+Bu kod parçası, Name özelliği için tanımlanan doğrulama mesajlarını görüntülemek için kullanılır.
+Bu özellik, genellikle bir model sınıfının özelliklerinden biridir ve bu özellik için belirli bir doğrulama kuralı tanımlanmışsa, bu kuralın geçerliliği kontrol edilir.
+Örneğin, bir HTML formunda kullanıcıdan bir ad girmesini istiyorsanız ve bu ad alanı için belirli bir minimum uzunluk kuralı tanımladıysanız, bu <span>
+    etiketi bu kuralın sağlanıp sağlanmadığını kontrol eder.
+    Eğer belirtilen kurala uymayan bir değer girilirse, bu <span>
+        etiketi, belirtilen doğrulama kuralına ilişkin hata mesajını görüntüler.
+        asp-validation-for özelliği, belirtilen özellik için tanımlanan doğrulama mesajlarını göstermek için kullanılır.
+        Bu özelliğin değeri, doğrulama hatalarının görüntüleneceği özelliğin adını içerir.
+        Yukarıdaki örnekte, Name özelliği için belirlenen doğrulama hataları bu <span> etiketi içinde görüntülenecektir. *@
+            
+    
+
+@* @section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+} 
+await Html.RenderPartialAsync("_ValidationScriptsPartial");, ASP.NET Core MVC veya Razor Pages uygulamalarında form doğrulama (validation) işlemleri için gerekli JavaScript dosyalarını sayfaya eklemek için kullanılan bir yardımcı yöntemdir.
+_ValidationScriptsPartial adlı bir kısmi görünümü (Partial View) render etmek için kullanılır. Bu kısmi görünüm, form doğrulama işlemleri için gerekli olan JavaScript kodunu içerir. 
+Bu kodlar, genellikle jQuery ve jQuery Validation eklentisi gibi kütüphaneleri içerir.
+Bu kod parçası, form doğrulama işlemleri için gerekli JavaScript dosyalarını sayfaya eklemek için kullanılır. 
+Bu dosyalar, form elemanlarının doğrulanmasını sağlar, yani kullanıcı formu göndermeden önce gerekli alanları doldurduğunu veya geçerli veri girdileri sağladığını kontrol eder.
+await ifadesi, bu işlemin asenkron olarak gerçekleşebileceğini belirtir ve işlemin tamamlanmasını bekler. 
+Html.RenderPartialAsync yöntemi, belirtilen kısmi görünümü render eder ve sonucu HTTP yanıt akışına ekler.
+Bu yöntem genellikle _Layout.cshtml gibi bir genel görünüm dosyasında veya belirli bir Razor sayfasında kullanılır. 
+Bu şekilde, uygulamanın tüm sayfalarında form doğrulama için gerekli JavaScript dosyaları otomatik olarak eklenir. 
+Bu da geliştirme sürecini kolaylaştırır ve kod tekrarını azaltır.
+ *@
